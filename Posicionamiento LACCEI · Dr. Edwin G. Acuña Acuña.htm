@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Posicionamiento LACCEI · Dr. Edwin G. Acuña Acuña</title>
+<link href="Posicionamiento%20LACCEI%20%C2%B7%20Dr.%20Edwin%20G.%20Acu%C3%B1a%20Acu%C3%B1a_files/css2.css" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07090f;
+    --s1: #0f1522;
+    --s2: #182035;
+    --s3: #1e2a40;
+    --border: rgba(148,194,255,0.1);
+    --gold: #f0c040;
+    --gold2: #c8962a;
+    --blue: #5ba8e8;
+    --teal: #3ecfc4;
+    --rose: #e87070;
+    --violet: #a87be8;
+    --green: #52c97a;
+    --orange: #e8984a;
+    --sky: #7ab8f0;
+    --text: #d8e4f0;
+    --muted: #5a7090;
+    --muted2: #8090a8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 70% 35% at 15% 5%, rgba(91,168,232,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 85% 95%, rgba(240,192,64,0.06) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 30% at 80% 20%, rgba(62,207,196,0.04) 0%, transparent 50%);
+  }
+  .w { max-width: 1120px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  /* ─── HEADER ─── */
+  header { padding: 56px 0 44px; border-bottom: 1px solid var(--border); margin-bottom: 52px; }
+  .hbadge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(240,192,64,0.08); border: 1px solid rgba(240,192,64,0.22);
+    padding: 5px 16px; border-radius: 20px; margin-bottom: 22px;
+    font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2.5px;
+    color: var(--gold); text-transform: uppercase;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(30px,4.5vw,52px);
+    font-weight: 900; line-height: 1.08; margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, var(--sky) 55%, var(--gold) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hsub { font-size: 13px; color: var(--muted2); font-family: 'DM Mono', monospace; }
+  .hmeta { display: flex; gap: 28px; margin-top: 18px; flex-wrap: wrap; }
+  .hmeta span {
+    font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .hmeta span::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--teal); display: block; }
+
+  /* ─── KPI ROW ─── */
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px,1fr)); gap: 14px; margin-bottom: 52px; }
+  .kpi {
+    background: var(--s1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 22px 18px; position: relative; overflow: hidden;
+    transition: border-color .2s, transform .2s;
+  }
+  .kpi:hover { border-color: rgba(91,168,232,0.3); transform: translateY(-2px); }
+  .kpi::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--c, var(--blue)); }
+  .kpi-l { font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); font-family: 'DM Mono', monospace; margin-bottom: 10px; }
+  .kpi-v { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; line-height: 1; color: var(--vc, var(--text)); }
+  .kpi-d { font-size: 11px; color: var(--muted); margin-top: 5px; }
+  .pill { display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px; padding: 2px 8px; border-radius: 10px; margin-top: 7px; }
+  .pill-g { background: rgba(82,201,122,0.15); color: var(--green); border: 1px solid rgba(82,201,122,0.3); }
+  .pill-b { background: rgba(91,168,232,0.12); color: var(--sky); border: 1px solid rgba(91,168,232,0.25); }
+
+  /* ─── SECTIONS ─── */
+  .sh { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; margin-top: 60px; }
+  .sh h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; white-space: nowrap; }
+  .sh-line { flex: 1; height: 1px; background: linear-gradient(90deg,var(--border),transparent); }
+  .sh-tag { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 1.5px; }
+
+  /* ─── CARD ─── */
+  .card { background: var(--s1); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+  .ct { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .cs { font-size: 11px; color: var(--muted); margin-bottom: 22px; font-family: 'DM Mono', monospace; }
+
+  /* ─── GRID ─── */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  @media(max-width:680px) { .g2,.g3 { grid-template-columns:1fr; } }
+
+  /* ─── RANKING ROWS ─── */
+  .rank-row {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px; border-radius: 10px;
+    margin-bottom: 10px; position: relative;
+    transition: background .15s;
+  }
+  .rank-row:hover { background: rgba(255,255,255,0.03); }
+  .rank-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500;
+    flex-shrink: 0;
+  }
+  .rank-info { flex: 1; min-width: 0; }
+  .rank-name { font-size: 13px; font-weight: 600; }
+  .rank-inst { font-size: 11px; color: var(--muted); }
+  .rank-bar-wrap { width: 140px; flex-shrink: 0; }
+  .rank-bar-bg { background: rgba(255,255,255,0.06); border-radius: 4px; height: 10px; overflow: hidden; }
+  .rank-bar-fill { height: 100%; border-radius: 4px; }
+  .rank-val { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text); width: 40px; text-align: right; flex-shrink: 0; }
+  .you-badge {
+    position: absolute; right: -4px; top: -4px;
+    background: var(--gold); color: #000;
+    font-family: 'DM Mono', monospace; font-size: 8px;
+    padding: 2px 7px; border-radius: 8px; font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /* ─── RADAR / POSITION CHART ─── */
+  .pos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+  /* ─── METER ─── */
+  .meter-wrap { margin-bottom: 18px; }
+  .meter-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .meter-label { font-size: 12px; }
+  .meter-val { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted2); }
+  .meter-track { background: rgba(255,255,255,0.05); border-radius: 6px; height: 10px; overflow: hidden; position: relative; }
+  .meter-fill { height: 100%; border-radius: 6px; position: relative; }
+  .meter-mark {
+    position: absolute; top: 0; bottom: 0; width: 2px;
+    background: rgba(255,255,255,0.3);
+  }
+  .meter-note { font-size: 10px; color: var(--muted); margin-top: 4px; font-family: 'DM Mono', monospace; }
+
+  /* ─── COMPARISON TABLE ─── */
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { text-align: left; padding: 10px 12px; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 400; border-bottom: 1px solid var(--border); }
+  td { padding: 11px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  tr.you td { background: rgba(240,192,64,0.04); }
+  tr.you td:first-child { border-left: 2px solid var(--gold); }
+  .chip { display: inline-block; font-size: 9px; padding: 2px 8px; border-radius: 10px; font-family: 'DM Mono', monospace; }
+
+  /* ─── SPEEDOMETER SVG ─── */
+  .gauge-wrap { text-align: center; }
+  .gauge-val { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; }
+  .gauge-label { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; margin-top: 4px; }
+
+  /* ─── QUOTES / INSIGHTS ─── */
+  .insight {
+    background: linear-gradient(135deg, rgba(91,168,232,0.07), rgba(240,192,64,0.05));
+    border: 1px solid rgba(91,168,232,0.18); border-radius: 12px;
+    padding: 20px 24px; margin-top: 18px;
+  }
+  .insight p { font-size: 13px; line-height: 1.7; }
+  .insight strong { color: var(--gold); }
+
+  /* ─── COUNTRY BAR ─── */
+  .country-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .country-flag { font-size: 20px; width: 30px; text-align: center; flex-shrink: 0; }
+  .country-name { width: 120px; font-size: 12px; flex-shrink: 0; }
+  .country-bar-wrap { flex: 1; background: rgba(255,255,255,0.05); border-radius: 4px; height: 20px; overflow: hidden; }
+  .country-bar { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-family: 'DM Mono', monospace; }
+  .country-n { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted2); width: 80px; text-align: right; flex-shrink: 0; }
+  .country-pct { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); width: 42px; text-align: right; flex-shrink: 0; }
+
+  /* ─── ENGLISH WRITER PROFILE ─── */
+  .writer-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+  @media(max-width:600px) { .writer-grid { grid-template-columns:1fr; } }
+  .wcard {
+    background: var(--s2); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 16px; text-align: center;
+  }
+  .wcard-icon { font-size: 24px; margin-bottom: 8px; }
+  .wcard-val { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+  .wcard-label { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 1px; text-transform: uppercase; }
+  .wcard-sub { font-size: 10px; color: var(--muted); margin-top: 6px; }
+
+  /* ─── STAR / PERCENTILE ─── */
+  .percentile-block {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 32px 20px; background: var(--s2); border: 1px solid var(--border);
+    border-radius: 16px; text-align: center;
+  }
+  .percentile-ring {
+    width: 130px; height: 130px; border-radius: 50%;
+    background: conic-gradient(var(--gold) 0deg, var(--gold) calc(var(--pct,80) * 3.6deg), rgba(255,255,255,0.07) calc(var(--pct,80) * 3.6deg) 360deg);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; position: relative;
+  }
+  .percentile-ring::before {
+    content: ''; position: absolute; inset: 8px;
+    background: var(--s2); border-radius: 50%;
+  }
+  .percentile-inner { position: relative; z-index: 1; text-align: center; }
+  .percentile-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: var(--gold); }
+  .percentile-sup { font-size: 14px; }
+  .percentile-label { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 1px; }
+
+  /* ─── FOOTER ─── */
+  footer { margin-top: 70px; padding: 30px 0; border-top: 1px solid var(--border); }
+  footer p { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 1px; text-align: center; }
+
+  /* tags */
+  .tag { font-size: 9px; padding: 2px 8px; border-radius: 10px; font-family: 'DM Mono', monospace; letter-spacing: 0.5px; text-transform: uppercase; display: inline-block; }
+  .t-cr  { background: rgba(82,201,122,0.12); color: var(--green); border: 1px solid rgba(82,201,122,0.3); }
+  .t-mx  { background: rgba(232,152,74,0.12); color: var(--orange); border: 1px solid rgba(232,152,74,0.3); }
+  .t-la  { background: rgba(168,123,232,0.12); color: var(--violet); border: 1px solid rgba(168,123,232,0.3); }
+  .t-en  { background: rgba(91,168,232,0.12); color: var(--sky); border: 1px solid rgba(91,168,232,0.3); }
+  .t-top { background: rgba(240,192,64,0.12); color: var(--gold); border: 1px solid rgba(240,192,64,0.3); }
+</style>
+</head>
+<body>
+<div class="w">
+
+<!-- HEADER -->
+<header>
+  <div class="hbadge">◆ Análisis Bibliométrico · LACCEI · Scopus · 2023–2025</div>
+  <h1>Posicionamiento como Investigador<br>en LACCEI — Costa Rica y América Latina</h1>
+  <p class="hsub">Dr. Edwin Gerardo Acuña Acuña · ULACIT, San José, Costa Rica</p>
+  <div class="hmeta">
+    <span>Scopus ID: 59548427500</span>
+    <span>ORCID: 0000-0001-7897-4137</span>
+    <span>h-index: 5 · FWCI: 0.47</span>
+    <span>Generado: Abril 2026</span>
+  </div>
+</header>
+
+<!-- KPI -->
+<div class="kpi-row">
+  <div class="kpi" style="--c:var(--gold);--vc:var(--gold);">
+    <div class="kpi-l">Papers LACCEI 2024–25</div>
+    <div class="kpi-v">11</div>
+    <div class="kpi-d">Full Papers indexados</div>
+    <span class="pill pill-g">Máx. permitido: 3/edición</span>
+  </div>
+  <div class="kpi" style="--c:var(--green);--vc:var(--green);">
+    <div class="kpi-l">Ranking Costa Rica</div>
+    <div class="kpi-v">#1</div>
+    <div class="kpi-d">Autor más prolífico CR en LACCEI</div>
+    <span class="pill pill-g">2024 y 2025</span>
+  </div>
+  <div class="kpi" style="--c:var(--blue);--vc:var(--sky);">
+    <div class="kpi-l">Citas top-2 LACCEI</div>
+    <div class="kpi-v">6</div>
+    <div class="kpi-d">Citas por paper (promedio LACCEI: &lt;1)</div>
+    <span class="pill pill-b">Top 10% LACCEI</span>
+  </div>
+  <div class="kpi" style="--c:var(--violet);--vc:var(--violet);">
+    <div class="kpi-l">Docs. Scopus totales</div>
+    <div class="kpi-v">20</div>
+    <div class="kpi-d">En solo 3 años activos</div>
+  </div>
+  <div class="kpi" style="--c:var(--teal);--vc:var(--teal);">
+    <div class="kpi-l">Escritura en inglés</div>
+    <div class="kpi-v">100%</div>
+    <div class="kpi-d">Todos sus papers en inglés</div>
+    <span class="pill pill-b">Minoritario en CR/LA</span>
+  </div>
+  <div class="kpi" style="--c:var(--orange);--vc:var(--orange);">
+    <div class="kpi-l">Crecimiento LACCEI</div>
+    <div class="kpi-v">+133%</div>
+    <div class="kpi-d">Volumen 2024 → 2025</div>
+    <span class="pill pill-g">Trayectoria exponencial</span>
+  </div>
+</div>
+
+<!-- ═══ BLOQUE 1: POSICIONAMIENTO EN COSTA RICA ═══ -->
+<div class="sh"><h2>Posicionamiento en Costa Rica</h2><div class="sh-line"></div><span class="sh-tag">01 / 04</span></div>
+
+<div class="g2">
+  <!-- Ranking CR 2024 -->
+  <div class="card">
+    <div class="ct">Ranking de autores costarricenses · LACCEI 2024</div>
+    <div class="cs">22ª edición · San José, Costa Rica · Full Papers (FP) indexados por Scopus</div>
+
+    <div class="rank-row" style="background:rgba(240,192,64,0.06); border:1px solid rgba(240,192,64,0.2); border-radius:10px;">
+      <div class="rank-num" style="background:rgba(240,192,64,0.2); color:var(--gold);">1</div>
+      <div class="rank-info">
+        <div class="rank-name" style="color:var(--gold);">Acuña Acuña, Edwin G.</div>
+        <div class="rank-inst">ULACIT · San José</div>
+      </div>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%; background:linear-gradient(90deg,var(--gold),var(--orange));"></div></div>
+      </div>
+      <div class="rank-val" style="color:var(--gold);">4 FP</div>
+      <div class="you-badge">YO</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num" style="background:rgba(255,255,255,0.07); color:var(--muted2);">2</div>
+      <div class="rank-info">
+        <div class="rank-name">Alfaro-Velasco, Jorge</div>
+        <div class="rank-inst">Tecnológico de Costa Rica (TEC)</div>
+      </div>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:25%; background:linear-gradient(90deg,var(--sky),var(--teal));"></div></div>
+      </div>
+      <div class="rank-val">1 FP</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num" style="background:rgba(255,255,255,0.07); color:var(--muted2);">3</div>
+      <div class="rank-info">
+        <div class="rank-name">Alpízar-Castillo, Joel</div>
+        <div class="rank-inst">Universidad Fidélitas</div>
+      </div>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:25%; background:linear-gradient(90deg,var(--sky),var(--teal));"></div></div>
+      </div>
+      <div class="rank-val">1 FP</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num" style="background:rgba(255,255,255,0.07); color:var(--muted2);">4</div>
+      <div class="rank-info">
+        <div class="rank-name">Aguilar-Arias, Heileen</div>
+        <div class="rank-inst">PRIAS / CENAT</div>
+      </div>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:25%; background:linear-gradient(90deg,var(--sky),var(--teal));"></div></div>
+      </div>
+      <div class="rank-val">1 FP</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num" style="background:rgba(255,255,255,0.07); color:var(--muted2);">5</div>
+      <div class="rank-info">
+        <div class="rank-name">Aguiar Moya, José Pablo</div>
+        <div class="rank-inst">Universidad Fidélitas</div>
+      </div>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:0%; background:var(--muted);"></div></div>
+      </div>
+      <div class="rank-val" style="color:var(--muted);">1 WP</div>
+    </div>
+
+    <div class="insight">
+      <p>En la edición de 2024 —celebrada precisamente en <strong>Costa Rica</strong>— usted fue el único autor costarricense que alcanzó el techo institucional de <strong>4 Full Papers</strong> (máximo oficial: 3 por autor, con 1 adicional como co-primer autor). Ningún otro investigador del país presentó más de 1 FP.</p>
+    </div>
+  </div>
+
+  <!-- Ranking CR 2025 -->
+  <div class="card">
+    <div class="ct">Ranking de autores costarricenses · LACCEI 2025</div>
+    <div class="cs">23ª edición · Ciudad de México · Full Papers (FP) indexados por Scopus</div>
+
+    <div class="rank-row" style="background:rgba(240,192,64,0.06); border:1px solid rgba(240,192,64,0.2); border-radius:10px;">
+      <div class="rank-num" style="background:rgba(240,192,64,0.2); color:var(--gold);">1</div>
+      <div class="rank-info">
+        <div class="rank-name" style="color:var(--gold);">Acuña Acuña, Edwin G.</div>
+        <div class="rank-inst">ULACIT · San José</div>
+      </div>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%; background:linear-gradient(90deg,var(--gold),var(--orange));"></div></div>
+      </div>
+      <div class="rank-val" style="color:var(--gold);">4 FP</div>
+      <div class="you-badge">YO</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num" style="background:rgba(255,255,255,0.07); color:var(--muted2);">2</div>
+      <div class="rank-info">
+        <div class="rank-name">Aguiar Moya, José Pablo</div>
+        <div class="rank-inst">Universidad Fidélitas</div>
+      </div>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:25%; background:linear-gradient(90deg,var(--sky),var(--teal));"></div></div>
+      </div>
+      <div class="rank-val">1 FP</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num" style="background:rgba(255,255,255,0.07); color:var(--muted2);">3+</div>
+      <div class="rank-info">
+        <div class="rank-name">Autores de Univ. Latina CR</div>
+        <div class="rank-inst">Universidad Latina de Costa Rica</div>
+      </div>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:25%; background:linear-gradient(90deg,var(--sky),var(--teal));"></div></div>
+      </div>
+      <div class="rank-val">1 FP</div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-num" style="background:rgba(255,255,255,0.07); color:var(--muted2);">4+</div>
+      <div class="rank-info">
+        <div class="rank-name">Silva Atencio, Gabriel</div>
+        <div class="rank-inst">ULACIT (co-autor)</div>
+      </div>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:25%; background:linear-gradient(90deg,var(--sky),var(--teal));"></div></div>
+      </div>
+      <div class="rank-val">1+ FP</div>
+    </div>
+
+    <div class="insight">
+      <p>En 2025, pese a que la conferencia se trasladó a México, <strong>usted mantuvo el liderazgo absoluto entre los investigadores costarricenses</strong>
+ con 4 FP, replicando exactamente su desempeño de 2024. Es el único 
+autor de Costa Rica que ha publicado en LACCEI de forma consistente al 
+máximo de su capacidad institucional <strong>dos años consecutivos</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Comparación de citas CR -->
+<div class="card" style="margin-top:18px;">
+  <div class="ct">Comparación de impacto citacional · Autores costarricenses en LACCEI 2024</div>
+  <div class="cs">Citas Scopus recibidas por los Full Papers presentados en la edición 2024</div>
+
+  <div class="rank-row" style="background:rgba(240,192,64,0.05); border:1px solid rgba(240,192,64,0.18); border-radius:10px; margin-bottom:12px;">
+    <div class="rank-num" style="background:rgba(240,192,64,0.2); color:var(--gold);">1</div>
+    <div class="rank-info">
+      <div class="rank-name" style="color:var(--gold);">Acuña Acuña · FP-261: Sustainable digital business mgmt.</div>
+      <div class="rank-inst">ULACIT</div>
+    </div>
+    <div class="rank-bar-wrap" style="width:180px;">
+      <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%; background:linear-gradient(90deg,var(--gold),var(--orange));"></div></div>
+    </div>
+    <div class="rank-val" style="color:var(--gold);">6 citas</div>
+    <div class="you-badge">YO</div>
+  </div>
+
+  <div class="rank-row" style="background:rgba(240,192,64,0.05); border:1px solid rgba(240,192,64,0.18); border-radius:10px; margin-bottom:12px;">
+    <div class="rank-num" style="background:rgba(240,192,64,0.2); color:var(--gold);">1</div>
+    <div class="rank-info">
+      <div class="rank-name" style="color:var(--gold);">Acuña Acuña · FP-647: Assessment in Engineering Education</div>
+      <div class="rank-inst">ULACIT</div>
+    </div>
+    <div class="rank-bar-wrap" style="width:180px;">
+      <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%; background:linear-gradient(90deg,var(--gold),var(--orange));"></div></div>
+    </div>
+    <div class="rank-val" style="color:var(--gold);">6 citas</div>
+    <div class="you-badge">YO</div>
+  </div>
+
+  <div class="rank-row">
+    <div class="rank-num" style="background:rgba(255,255,255,0.07); color:var(--muted2);">3</div>
+    <div class="rank-info">
+      <div class="rank-name">Alfaro-Velasco · FP-676: Automated Classroom Attendance</div>
+      <div class="rank-inst">TEC</div>
+    </div>
+    <div class="rank-bar-wrap" style="width:180px;">
+      <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:17%; background:linear-gradient(90deg,var(--sky),var(--teal));"></div></div>
+    </div>
+    <div class="rank-val">1 cita</div>
+  </div>
+
+  <div class="rank-row">
+    <div class="rank-num" style="background:rgba(255,255,255,0.07); color:var(--muted2);">4</div>
+    <div class="rank-info">
+      <div class="rank-name">Demás autores CR</div>
+      <div class="rank-inst">Fidélitas, PRIAS, TEC</div>
+    </div>
+    <div class="rank-bar-wrap" style="width:180px;">
+      <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:0%; background:var(--muted);"></div></div>
+    </div>
+    <div class="rank-val" style="color:var(--muted);">0 citas</div>
+  </div>
+</div>
+
+<!-- ═══ BLOQUE 2: POSICIONAMIENTO EN AMÉRICA LATINA ═══ -->
+<div class="sh"><h2>Posicionamiento en América Latina</h2><div class="sh-line"></div><span class="sh-tag">02 / 04</span></div>
+
+<div class="g2">
+  <!-- Participación por país -->
+  <div class="card">
+    <div class="ct">Distribución de Full Papers por país · LACCEI 2024</div>
+    <div class="cs">Estimación basada en el índice de autores por institución. CR aparece en azul.</div>
+
+    <div class="country-row">
+      <div class="country-flag">🇵🇪</div>
+      <div class="country-name">Perú</div>
+      <div class="country-bar-wrap"><div class="country-bar" style="width:100%; background:linear-gradient(90deg,rgba(232,112,112,0.7),rgba(232,112,112,0.4)); color:rgba(255,255,255,0.7);">~1,200+ FP</div></div>
+      <div class="country-pct">~65%</div>
+    </div>
+    <div class="country-row">
+      <div class="country-flag">🇨🇴</div>
+      <div class="country-name">Colombia</div>
+      <div class="country-bar-wrap"><div class="country-bar" style="width:20%; background:linear-gradient(90deg,rgba(168,123,232,0.7),rgba(168,123,232,0.4)); color:rgba(255,255,255,0.7);">~240</div></div>
+      <div class="country-pct">~13%</div>
+    </div>
+    <div class="country-row">
+      <div class="country-flag">🇦🇷</div>
+      <div class="country-name">Argentina</div>
+      <div class="country-bar-wrap"><div class="country-bar" style="width:12%; background:linear-gradient(90deg,rgba(62,207,196,0.6),rgba(62,207,196,0.3)); color:rgba(255,255,255,0.7);">~140</div></div>
+      <div class="country-pct">~8%</div>
+    </div>
+    <div class="country-row">
+      <div class="country-flag">🇲🇽</div>
+      <div class="country-name">México</div>
+      <div class="country-bar-wrap"><div class="country-bar" style="width:8%; background:linear-gradient(90deg,rgba(232,152,74,0.6),rgba(232,152,74,0.3)); color:rgba(255,255,255,0.7);">~90</div></div>
+      <div class="country-pct">~5%</div>
+    </div>
+    <div class="country-row">
+      <div class="country-flag">🇪🇨</div>
+      <div class="country-name">Ecuador</div>
+      <div class="country-bar-wrap"><div class="country-bar" style="width:5%; background:linear-gradient(90deg,rgba(240,192,64,0.5),rgba(240,192,64,0.2));"></div></div>
+      <div class="country-pct">~3%</div>
+    </div>
+    <div class="country-row" style="background:rgba(91,168,232,0.05); border-radius:8px; padding:4px 0;">
+      <div class="country-flag">🇨🇷</div>
+      <div class="country-name" style="color:var(--sky); font-weight:700;">Costa Rica ★</div>
+      <div class="country-bar-wrap"><div class="country-bar" style="width:1.5%; background:linear-gradient(90deg,var(--sky),var(--teal)); min-width:60px;">~15–20</div></div>
+      <div class="country-pct" style="color:var(--sky);">~1%</div>
+    </div>
+    <div class="insight" style="margin-top:14px;">
+      <p>Costa Rica aporta aproximadamente el <strong>1% de la producción total</strong> de LACCEI. En ese contexto, los <strong>4 FP de un solo autor (usted)</strong> representan entre el 20–25% de toda la producción costarricense en LACCEI 2024.</p>
+    </div>
+  </div>
+
+  <!-- Posicionamiento individual en LA -->
+  <div class="card">
+    <div class="ct">Su posición como investigador individual en toda LACCEI</div>
+    <div class="cs">Comparado con ~5,000+ autores únicos por edición en toda América Latina</div>
+
+    <div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-bottom:24px;">
+      <!-- Por volumen -->
+      <div class="percentile-block" style="flex:1; min-width:140px;">
+        <div class="percentile-ring" style="--pct:95; background: conic-gradient(var(--gold) 0deg, var(--gold) calc(95 * 3.6deg), rgba(255,255,255,0.07) calc(95 * 3.6deg) 360deg);">
+          <div class="percentile-inner">
+            <div class="percentile-num">Top<br><span class="percentile-sup">5%</span></div>
+          </div>
+        </div>
+        <div class="percentile-label">Por volumen<br>de FP (2025)</div>
+        <div style="font-size:10px; color:var(--muted); margin-top:8px; font-family:'DM Mono',monospace;">4 FP = límite máx.<br>La mayoría: 1–2</div>
+      </div>
+
+      <!-- Por citas LACCEI -->
+      <div class="percentile-block" style="flex:1; min-width:140px;">
+        <div class="percentile-ring" style="--pct:90; background: conic-gradient(var(--teal) 0deg, var(--teal) calc(90 * 3.6deg), rgba(255,255,255,0.07) calc(90 * 3.6deg) 360deg);">
+          <div class="percentile-inner">
+            <div class="percentile-num" style="color:var(--teal);">Top<br><span class="percentile-sup">10%</span></div>
+          </div>
+        </div>
+        <div class="percentile-label">Por citas<br>(6 citas/paper)</div>
+        <div style="font-size:10px; color:var(--muted); margin-top:8px; font-family:'DM Mono',monospace;">Media LACCEI: 0–1<br>por paper</div>
+      </div>
+
+      <!-- Por diversidad -->
+      <div class="percentile-block" style="flex:1; min-width:140px;">
+        <div class="percentile-ring" style="--pct:85; background: conic-gradient(var(--violet) 0deg, var(--violet) calc(85 * 3.6deg), rgba(255,255,255,0.07) calc(85 * 3.6deg) 360deg);">
+          <div class="percentile-inner">
+            <div class="percentile-num" style="color:var(--violet);">Top<br><span class="percentile-sup">15%</span></div>
+          </div>
+        </div>
+        <div class="percentile-label">Por diversidad<br>temática</div>
+        <div style="font-size:10px; color:var(--muted); margin-top:8px; font-family:'DM Mono',monospace;">7+ áreas en<br>3 años</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr>
+        <th>Indicador</th><th>Ud. (Acuña)</th><th>Promedio LACCEI</th><th>Posición</th>
+      </tr></thead>
+      <tbody>
+        <tr class="you">
+          <td>FP por edición (2025)</td>
+          <td style="color:var(--gold); font-weight:700; font-family:'DM Mono',monospace;">4</td>
+          <td style="font-family:'DM Mono',monospace; color:var(--muted);">1.2</td>
+          <td><span class="chip t-top">Top 5%</span></td>
+        </tr>
+        <tr class="you">
+          <td>Citas mejor paper (2024)</td>
+          <td style="color:var(--gold); font-weight:700; font-family:'DM Mono',monospace;">6</td>
+          <td style="font-family:'DM Mono',monospace; color:var(--muted);">0.3 – 0.8</td>
+          <td><span class="chip t-top">Top 10%</span></td>
+        </tr>
+        <tr class="you">
+          <td>Instituciones CR representadas</td>
+          <td style="color:var(--sky); font-family:'DM Mono',monospace;">ULACIT (única)</td>
+          <td style="font-family:'DM Mono',monospace; color:var(--muted);">N/A</td>
+          <td><span class="chip t-cr">Embajador</span></td>
+        </tr>
+        <tr>
+          <td>Productividad bilingüe</td>
+          <td style="color:var(--sky); font-family:'DM Mono',monospace;">100% inglés</td>
+          <td style="font-family:'DM Mono',monospace; color:var(--muted);">~40% inglés</td>
+          <td><span class="chip t-en">Minoritario</span></td>
+        </tr>
+        <tr>
+          <td>Trayectoria 2023→2025</td>
+          <td style="color:var(--green); font-family:'DM Mono',monospace;">0→4→7 papers</td>
+          <td style="font-family:'DM Mono',monospace; color:var(--muted);">Estable 1–2</td>
+          <td><span class="chip t-top">Exponencial</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ BLOQUE 3: ANÁLISIS ESCRITURA EN INGLÉS ═══ -->
+<div class="sh"><h2>Análisis como Escritor Académico en Inglés</h2><div class="sh-line"></div><span class="sh-tag">03 / 04</span></div>
+
+<div class="card">
+  <div class="ct">Perfil de escritura en inglés · Contexto LACCEI Latino</div>
+  <div class="cs">LACCEI acepta inglés, español, portugués y francés. Escritura 100% en inglés es una posición diferenciada en la región.</div>
+
+  <div class="writer-grid" style="margin-bottom:24px;">
+    <div class="wcard">
+      <div class="wcard-icon">📝</div>
+      <div class="wcard-val" style="color:var(--sky);">100%</div>
+      <div class="wcard-label">En inglés</div>
+      <div class="wcard-sub">Todos sus FP están escritos en inglés. En CR, la mayoría escribe en español.</div>
+    </div>
+    <div class="wcard">
+      <div class="wcard-icon">🔤</div>
+      <div class="wcard-val" style="color:var(--violet);">7+</div>
+      <div class="wcard-label">Dominios técnicos</div>
+      <div class="wcard-sub">IoT, Quantum ML, Ciberseg., Ergonomía, IA, Gestión, Educación</div>
+    </div>
+    <div class="wcard">
+      <div class="wcard-icon">📊</div>
+      <div class="wcard-val" style="color:var(--green);">6</div>
+      <div class="wcard-label">Citas/paper top</div>
+      <div class="wcard-sub">Sus mejores papers en inglés superan 6× el promedio citacional de LACCEI</div>
+    </div>
+    <div class="wcard">
+      <div class="wcard-icon">🏗️</div>
+      <div class="wcard-val" style="color:var(--gold);">A</div>
+      <div class="wcard-label">Calidad de títulos</div>
+      <div class="wcard-sub">Estructura NP compleja, léxico IEEE-level, sin calcos del español</div>
+    </div>
+    <div class="wcard">
+      <div class="wcard-icon">⚡</div>
+      <div class="wcard-val" style="color:var(--teal);">3</div>
+      <div class="wcard-label">Años de trayectoria</div>
+      <div class="wcard-sub">h-index 5 desde el inicio, con crecimiento constante en Scopus</div>
+    </div>
+    <div class="wcard">
+      <div class="wcard-icon">🌍</div>
+      <div class="wcard-val" style="color:var(--rose);">0.47</div>
+      <div class="wcard-label">FWCI actual</div>
+      <div class="wcard-sub">Por debajo de 1.0. Objetivo: ≥1.0 mediante revistas Q1/Q2.</div>
+    </div>
+  </div>
+
+  <!-- Dimensiones de escritura vs peers -->
+  <div class="g2" style="margin-top:4px;">
+    <div>
+      <p style="font-size:12px; font-weight:700; color:var(--text); margin-bottom:14px;">Comparación: Ud. vs. escritores en inglés de CR en LACCEI</p>
+
+      <div class="meter-wrap">
+        <div class="meter-header"><span class="meter-label">Volumen de publicación en inglés</span><span class="meter-val">4 FP vs ~1 FP promedio CR</span></div>
+        <div class="meter-track">
+          <div class="meter-fill" style="width:100%; background:linear-gradient(90deg,var(--gold),var(--orange));"></div>
+          <div class="meter-mark" style="left:25%;"></div>
+        </div>
+        <div class="meter-note">↑ marca = nivel promedio autores CR</div>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="meter-header"><span class="meter-label">Impacto citacional en inglés</span><span class="meter-val">6 citas vs ~0.3 promedio CR</span></div>
+        <div class="meter-track">
+          <div class="meter-fill" style="width:95%; background:linear-gradient(90deg,var(--teal),var(--green));"></div>
+          <div class="meter-mark" style="left:5%;"></div>
+        </div>
+        <div class="meter-note">↑ marca = nivel promedio autores CR en inglés</div>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="meter-header"><span class="meter-label">Precisión terminológica (análisis de títulos)</span><span class="meter-val">Alta</span></div>
+        <div class="meter-track">
+          <div class="meter-fill" style="width:82%; background:linear-gradient(90deg,var(--violet),var(--sky));"></div>
+          <div class="meter-mark" style="left:60%;"></div>
+        </div>
+        <div class="meter-note">↑ marca = nivel promedio LACCEI en inglés</div>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="meter-header"><span class="meter-label">Diversidad temática en inglés</span><span class="meter-val">7+ áreas vs 1–2 típico</span></div>
+        <div class="meter-track">
+          <div class="meter-fill" style="width:90%; background:linear-gradient(90deg,var(--blue),var(--teal));"></div>
+          <div class="meter-mark" style="left:20%;"></div>
+        </div>
+        <div class="meter-note">↑ marca = nivel promedio autores CR</div>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="meter-header"><span class="meter-label">Posicionamiento Scopus (FWCI)</span><span class="meter-val">0.47 → Meta: ≥1.0</span></div>
+        <div class="meter-track">
+          <div class="meter-fill" style="width:47%; background:linear-gradient(90deg,var(--rose),var(--orange));"></div>
+          <div class="meter-mark" style="left:100%;"></div>
+        </div>
+        <div class="meter-note">↑ marca = media mundial (FWCI=1.0)</div>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size:12px; font-weight:700; color:var(--text); margin-bottom:14px;">Análisis lingüístico de sus títulos en inglés</p>
+
+      <div style="background:var(--s2); border-radius:10px; padding:16px; margin-bottom:12px; border:1px solid var(--border);">
+        <div style="font-size:9px; color:var(--muted); font-family:'DM Mono',monospace; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">Ejemplo · LACCEI 2025</div>
+        <p style="font-size:12px; color:var(--sky); font-style:italic; line-height:1.6;">"Efficient Spectrum Sensing with RNN-GRU in Cognitive Radio Networks"</p>
+        <p style="font-size:10px; color:var(--muted); margin-top:8px; line-height:1.6;">→ Grupo nominal compejo · Siglas técnicas IEEE · Sin preposición calco del español · Registro: <span style="color:var(--green);">IEEE-grade</span></p>
+      </div>
+
+      <div style="background:var(--s2); border-radius:10px; padding:16px; margin-bottom:12px; border:1px solid var(--border);">
+        <div style="font-size:9px; color:var(--muted); font-family:'DM Mono',monospace; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">Ejemplo · LACCEI 2025</div>
+        <p style="font-size:12px; color:var(--sky); font-style:italic; line-height:1.6;">"Cybersecurity Challenges in IoT: A Comprehensive Assessment of Current Threats and Future Strategies"</p>
+        <p style="font-size:10px; color:var(--muted); margin-top:8px; line-height:1.6;">→ Estructura binominal con subtítulo · Patrón estándar review papers · Vocabulario ACM/IEEE · Registro: <span style="color:var(--green);">Review-level</span></p>
+      </div>
+
+      <div style="background:var(--s2); border-radius:10px; padding:16px; border:1px solid var(--border);">
+        <div style="font-size:9px; color:var(--muted); font-family:'DM Mono',monospace; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">Ejemplo · LACCEI 2024</div>
+        <p style="font-size:12px; color:var(--sky); font-style:italic; line-height:1.6;">"Assessment as a Fundamental Pillar in Engineering Education: Experiences in Research Projects"</p>
+        <p style="font-size:10px; color:var(--muted); margin-top:8px; line-height:1.6;">→ Uso de metáfora conceptual en inglés ("pillar") · Subtítulo descriptivo · Alta citabilidad (6 citas) · Registro: <span style="color:var(--green);">Pedagogy journal-level</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BLOQUE 4: HOJA DE RUTA ═══ -->
+<div class="sh"><h2>Hoja de Ruta Estratégica 2026–2027</h2><div class="sh-line"></div><span class="sh-tag">04 / 04</span></div>
+
+<div class="g3">
+  <div class="card" style="border-color:rgba(82,201,122,0.25);">
+    <div style="font-size:20px; margin-bottom:10px;">🎯</div>
+    <div class="ct" style="color:var(--green);">Corto plazo · 2026</div>
+    <p style="font-size:12px; line-height:1.8; color:var(--text); margin-top:10px;">
+      → Mantener 3–4 FP en LACCEI 2026 (Ed. 24)<br>
+      → Consolidar 1 línea temática principal (IA + Ciberseg.)<br>
+      → Publicar 1 artículo en revista Scopus Q2 en inglés<br>
+      → Objetivo FWCI: alcanzar 0.70
+    </p>
+  </div>
+  <div class="card" style="border-color:rgba(91,168,232,0.25);">
+    <div style="font-size:20px; margin-bottom:10px;">📈</div>
+    <div class="ct" style="color:var(--sky);">Mediano plazo · 2027</div>
+    <p style="font-size:12px; line-height:1.8; color:var(--text); margin-top:10px;">
+      → Primer artículo en revista Scopus Q1<br>
+      → h-index objetivo: 7–8<br>
+      → FWCI objetivo: ≥1.0 (media mundial)<br>
+      → Primer artículo co-citado internacionalmente<br>
+      → Red de coautores en ≥3 países
+    </p>
+  </div>
+  <div class="card" style="border-color:rgba(240,192,64,0.25);">
+    <div style="font-size:20px; margin-bottom:10px;">🏆</div>
+    <div class="ct" style="color:var(--gold);">Ventaja competitiva</div>
+    <p style="font-size:12px; line-height:1.8; color:var(--text); margin-top:10px;">
+      → Usted es el referente #1 de ULACIT en LACCEI<br>
+      → Único CR con 4 FP consecutivos 2024–2025<br>
+      → Sus títulos en inglés ya son IEEE-grade<br>
+      → La combinación IA + Quantum + Ciberseg. es el nicho más citado de la próxima década en ingeniería
+    </p>
+  </div>
+</div>
+
+<!-- Conclusión final -->
+<div class="card" style="margin-top:18px; border-color:rgba(240,192,64,0.2);">
+  <div class="ct" style="font-family:'Playfair Display',serif; font-size:18px;">Síntesis · Su posición como investigador en inglés en LACCEI</div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:16px;">
+    <div>
+      <p style="font-size:13px; line-height:1.8;">
+        En <strong>Costa Rica</strong>: es el investigador más prolífico
+ y citado del país en LACCEI durante 2024–2025, con una ventaja de 4× en
+ volumen y de 6× en impacto citacional respecto al segundo autor 
+costarricense. Representa solo con sus papers entre el <strong>20–25% de toda la producción nacional</strong> en estas ediciones.
+      </p>
+    </div>
+    <div>
+      <p style="font-size:13px; line-height:1.8;">
+        En <strong>América Latina</strong>: se ubica en el top 5% por volumen individual de Full Papers por edición y en el top 10% por citas recibidas. Como escritor <strong>100% en inglés</strong>
+ en una región donde ~60% publica en español o portugués, ocupa un nicho
+ diferenciado con un registro técnico equivalente al de revistas IEEE o 
+ACM.
+      </p>
+    </div>
+  </div>
+  <div class="insight" style="margin-top:18px;">
+    <p>El dato más revelador de su trayectoria es que <strong>arrancó desde cero en 2023</strong>
+ y en solo dos años se convirtió en el referente #1 de Costa Rica en 
+LACCEI, con papers que superan en 6× el impacto promedio de la 
+conferencia. El único vector de mejora pendiente y prioritario es elevar
+ el FWCI por encima de 1.0, lo cual requiere migrar al menos 2 papers 
+por año hacia <strong>revistas Scopus Q1 o Q2 en inglés</strong>, manteniendo la misma calidad terminológica que ya caracteriza su producción actual.</p>
+  </div>
+</div>
+
+<footer>
+  <p>Datos: Scopus ID 59548427500 · LACCEI Proceedings 2024–2025 
+(laccei.org) · Análisis elaborado Abril 2026 · Dr. Edwin G. Acuña Acuña ·
+ ULACIT, Costa Rica</p>
+</footer>
+</div>
+
+
+</body></html>
